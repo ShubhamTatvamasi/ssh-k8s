@@ -10,3 +10,9 @@ kubectl patch svc openssh \
 kubectl patch svc openssh \
   --patch='{"spec": {"ports": [{"nodePort": 32222, "port": 2222}]}}'
 ```
+
+delete deployment
+```bash
+kubectl delete pod/openssh service/openssh
+```
+
