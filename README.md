@@ -2,7 +2,7 @@
 
 deploy ssh pod
 ```bash
-kubectl run openssh --image=linuxserver/openssh-server --restart=Never \ 
+kubectl run openssh --image=linuxserver/openssh-server --restart=Never \
   --port=2222 --expose --env=PUBLIC_KEY="$(cat ~/.ssh/id_ed25519.pub)"
 
 kubectl patch svc openssh \
