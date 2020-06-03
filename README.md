@@ -14,7 +14,10 @@ kubectl patch svc openssh \
 
 ssh to pod
 ```bash
-NODE_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="ExternalIP")].address}')
+NODE_NAME=$(kubectl get pod openssh -o jsonpath='{.spec.nodeName}')
+
+NODE_IP=$(kubectl get nodes ${NODE_NAME} \
+  -o jsonpath='{.status.addresses[?(@.type=="ExternalIP")].address}')
 
 ssh linuxserver.io@${NODE_IP} -p 32222
 ```
