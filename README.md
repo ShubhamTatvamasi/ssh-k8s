@@ -20,6 +20,8 @@ NODE_IP=$(kubectl get nodes ${NODE_NAME} \
   -o jsonpath='{.status.addresses[?(@.type=="ExternalIP")].address}')
 
 ssh linuxserver.io@${NODE_IP} -p 32222
+
+ssh linuxserver.io@k8s.shubhamtatvamasi.com -p 32222
 ```
 
 delete deployment
