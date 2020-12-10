@@ -3,7 +3,7 @@
 deploy ssh pod
 ```bash
 kubectl run openssh --image=linuxserver/openssh-server \
-  --port=2222 --expose --env=USER_NAME=root \
+  --port=2222 --expose --env=SUDO_ACCESS=true \
   --env=PUBLIC_KEY="$(cat ~/.ssh/id_ed25519.pub)"
 
 kubectl patch svc openssh \
